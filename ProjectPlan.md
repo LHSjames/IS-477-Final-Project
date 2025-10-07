@@ -10,8 +10,6 @@ Which listing features (e.g., room type, price, number of beds) are the stronges
 Are there specific, measurable neighborhood factors that correlate with host turnover or the proportion of professional, multi-listing hosts in the city?
 
 ## Team
-JJ Park & James Lee
-
 JJ Park:
 
 James Lee:
