@@ -1,6 +1,6 @@
 # IS 477 Project
 ## Overview
-The overall goal of this project is to conduct a detailed, data-driven analysis of the Chicago Airbnb market. This will be achieved by integrating three distinct datasets—static property features, dynamic review activity, and official neighborhood metadata—to create a comprehensive view of the market. The final deliverable will include a statistical analysis of key factors and a predictive model designed to identify drivers of listing success and guest satisfaction.
+The goal of this project is to perform a thorough, data-intensive examination of the Chicago Airbnb market through the integration of three different datasets: static attributes of properties, dynamic behavioral review activity, and official neighborhood metadata. to generate an integrative market picture. It will combine static attributes of properties (listings.csv), dynamic behavioral review activity (reviews.csv), and official neighborhood metadata (neighborhood.csv) to generate a comprehensive picture of the market.
 
 #Research Question(s)
 What is the measurable impact of neighborhood categorization (as defined by the city data) on the average listing price, minimum stay requirements, and overall availability of listings in Chicago?
@@ -10,12 +10,20 @@ Which listing features (e.g., room type, price, number of beds) are the stronges
 Are there specific, measurable neighborhood factors that correlate with host turnover or the proportion of professional, multi-listing hosts in the city?
 
 ## Team
-JJ Park:
+JJ Park: Data Engineer
 
-James Lee:
+- Collects, formats, and integrates the listings, reviews, and neighborhood datasets.
+
+- Builds and maintains data pipelines to ensure clean and consistent data for analysis.
+
+James Lee: Data Analyst
+
+- Cleans and explores the data.
+
+- Creates visualizations and performs statistical or predictive analysis.
 
 ## Datasets
-I will use three files from the Chicago Inside Airbnb dataset, which will be integrated for a comprehensive analysis:
+We will use three files from the Chicago Inside Airbnb dataset, which will be integrated for a comprehensive analysis:
 
 Dataset 1: Chicago Listing Features (chicago_airbnb_listings.csv). This file contains the static property data, including price, room type, and keys for integration: id and neighbourhood.
 
