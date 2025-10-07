@@ -2,8 +2,7 @@
 ## Overview
 The goal of this project is to perform a thorough, data-intensive examination of the Chicago Airbnb market through the integration of three different datasets: static attributes of properties, dynamic behavioral review activity, and official neighborhood metadata. to generate an integrative market picture. It will combine static attributes of properties (listings.csv), dynamic behavioral review activity (reviews.csv), and official neighborhood metadata (neighborhood.csv) to generate a comprehensive picture of the market.
 
-#Research Question(s)
-
+## Research Question(s)
 What is the measurable impact of neighborhood categorization (as defined by the city data) on the average listing price, minimum stay requirements, and overall availability of listings in Chicago?
 
 Which listing features (e.g., room type, price, number of beds) are the strongest predictors of a listing's booking frequency, using the count and density of historical reviews as a proxy for success?
