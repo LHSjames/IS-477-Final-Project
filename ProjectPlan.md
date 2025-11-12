@@ -33,6 +33,8 @@ Dataset 3: Chicago Neighborhood Metadata (chicago_airbnb_neighbourhoods.csv). Th
 
 Integration Plan: Data integration will occur using two distinct relational joining steps. First, the review data will be merged with the primary listing data using a JOIN on the listing IDs (id and listing_id). Second, the combined listing data will then be validated and augmented by performing a second JOIN with the neighborhood metadata on the neighbourhood name column. This multi-step process will create a single, unified dataset for analysis.
 
+**License and Use:** The Inside Airbnb dataset is provided under a Creative Commons CC BY-NC-SA 4.0 License. This project will adhere to this license by using the data for non-commercial, academic purposes and providing clear attribution.
+
 ## Timeline
 The project will proceed through the following phases:
 
@@ -63,3 +65,8 @@ Areas requiring future input or potential refinement include:
 Model Selection: The final predictive model architecture is currently undecided and will be chosen after the initial EDA results reveal the best target variable and data distribution.
 
 External Data: The analysis would be enhanced by integrating external socioeconomic data (e.g., median household income by neighborhood) if time and resources permit its acquisition and integration.
+
+**Future Module Integration:** This plan will be expanded to incorporate future course modules, including:
+* **Workflow Automation:** An automated end-to-end workflow (e.g., Snakemake).
+* **Reproducibility:** A `requirements.txt` file and detailed reproduction steps.
+* **Metadata:** A data dictionary for the final dataset.
