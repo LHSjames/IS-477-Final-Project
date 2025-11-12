@@ -20,8 +20,8 @@ Here is an update on the tasks from our original project plan:
     * **Artifacts:** `02_cleaning.ipynb`
 
 * **Phase 4: Exploratory Data Analysis (EDA)**
-    * **Status:** Not Started
-    * **Description:** James will begin the EDA once the cleaned data from Phase 3 is available.
+    * **Status:** Completed
+    * **Description:** EDA was conducted using the cleaned Airbnb dataset (cleaned_chicago_data.csv) to explore pricing trends, neighborhood effects, and host behavior. The analysis was performed in the eda.ipynb notebook, where summary statistics, correlations, and visualizations were generated.
 
 * **Phase 5: Model Selection & Training**
     * **Status:** Not Started
