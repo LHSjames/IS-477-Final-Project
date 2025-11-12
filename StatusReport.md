@@ -44,7 +44,7 @@ Our timeline has been adjusted to reflect the work remaining until the final dea
 | Data Cleaning | Completed | Nov 12, 2025 | JJ Park |
 | EDA | ~Oct 19, 2025 | Nov 27, 2025 | James Lee |
 | Model Selection | Not Started | Dec 3, 2025 | James Lee |
-| Model Evaluation | Not Started | Dec 8, 2025 | James Lee |
+| Model Evaluation | Not Started | Dec 8, 2025 | **Both**  |
 | **Final Submission** | **Not Started** | - | **Both** |
 
 ---
