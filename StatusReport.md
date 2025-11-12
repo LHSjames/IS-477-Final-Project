@@ -15,8 +15,9 @@ Here is an update on the tasks from our original project plan:
     * **Artifacts:** `01_data_integration.ipynb`
 
 * **Phase 3: Data Cleaning & Feature Engineering**
-    * **Status:** Not Started
-    * **Description:** This task will begin once the integrated dataset from Phase 2 is finalized.
+    * **Status:** Completed
+    * **Description:** As the Data Engineer (JJ), I have written and executed the `02_cleaning.ipynb` notebook. All empty columns were dropped, and rows with missing 'price' data were removed.
+    * **Artifacts:** `02_cleaning.ipynb`
 
 * **Phase 4: Exploratory Data Analysis (EDA)**
     * **Status:** Not Started
@@ -40,7 +41,7 @@ Our timeline has been adjusted to reflect the work remaining until the final dea
 | :--- | :--- | :--- | :--- |
 | Project Planning | Completed | Oct 7, 2025 | Both |
 | Data Acquisition | Completed | Nov 12, 2025 | JJ Park |
-| Data Cleaning | Completed | Nov 12, 2025 | James Lee |
+| Data Cleaning | Completed | Nov 12, 2025 | JJ Park |
 | EDA | ~Oct 19, 2025 | Nov 27, 2025 | James Lee |
 | Model Selection | Not Started | Dec 3, 2025 | James Lee |
 | Model Evaluation | Not Started | Dec 8, 2025 | James Lee |
