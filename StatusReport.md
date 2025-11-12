@@ -38,9 +38,9 @@ Our timeline has been adjusted to reflect the work remaining until the final dea
 
 | Task | Status | Due Date | Assigned To |
 | :--- | :--- | :--- | :--- |
-| Project Planning | Completed | N/A | Both |
-| Data Acquisition | Completed | Nov 17, 2025 | JJ Park |
-| Data Cleaning | Not Started | Nov 22, 2025 | JJ Park |
+| Project Planning | Completed | Oct 7, 2025 | Both |
+| Data Acquisition | Completed | Nov 12, 2025 | JJ Park |
+| Data Cleaning | Not Started | Nov 12, 2025 | James Lee |
 | EDA | ~Oct 19, 2025 | Nov 27, 2025 | James Lee |
 | Model Selection | Not Started | Dec 3, 2025 | James Lee |
 | Model Evaluation | Not Started | Dec 8, 2025 | James Lee |
