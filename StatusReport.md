@@ -75,8 +75,11 @@ Based on feedback received for Milestone 2, we are updating our project plan.
 ## 4. Individual Contributions
 
 
-JJ Park:
+**JJ Park (Data Engineer):**
 * Authored the `01_data_integration.ipynb` notebook to perform the two-stage data merge.
-* Successfully ran the integration to combine the `listings`, `reviews`, and `neighbourhoods` datasets.
-* Generated the final `integrated_chicago_data.csv` file.
+* Authored the `02_cleaning.ipynb` notebook to clean the integrated data by dropping empty columns and removing rows with missing prices.
+* Successfully generated the `cleaned_chicago_data.csv` file, which is now ready for analysis.
 * Created the `.gitignore` file to prevent large data files from being committed to the repository, per project requirements.
+* Researched and addressed all feedback from Milestone 2 (dataset license, future modules).
+
+* James Lee
