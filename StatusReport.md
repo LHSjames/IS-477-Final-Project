@@ -102,7 +102,7 @@ Overall, these findings confirm that the dataset is ready for the modeling phase
 * Researched and addressed all feedback from Milestone 2 (dataset license, future modules).
 
 **James Lee (Data Analyst):**
-* Authored the eda.ipynb notebook to perform the Exploratory Data Analysis (EDA) on the cleaned dataset.
+* Authored the 'eda.ipynb' notebook to perform the Exploratory Data Analysis (EDA) on the cleaned dataset.
 * Analyzed price distributions, neighborhood effects, and correlations among key variables to identify significant trends.
 * Generated two visualizations (fig_price_hist.png and fig_price_by_room.png) to summarize price patterns and room-type differences.
 * Interpreted EDA results to guide feature selection and transformation for the upcoming modeling phase.
