@@ -107,3 +107,17 @@ Overall, these findings confirm that the dataset is ready for the modeling phase
 * Generated two visualizations (`fig_price_hist.png` and `fig_price_by_room.png`) to summarize price patterns and room-type differences.
 * Interpreted EDA results to guide feature selection and transformation for the upcoming modeling phase.
 * Documented the EDA findings and integrated visualizations into the StatusReport.md file for Milestone 3.
+
+---
+
+## 6. Overall Summary
+
+This milestone marks a significant and successful transition from project planning to full-scale execution. As a team, we have not only met but exceeded our initial goals for this stage of the project.
+
+Our workflow began with the foundational data engineering tasks, fulfilling the requirements for **Phase 2 (Integration)**. We successfully authored a notebook (`01_data_integration.ipynb`) to perform a two-stage relational merge, combining three distinct data sources (`listings`, `reviews`, and `neighbourhoods`) into a single, comprehensive dataset. This process, which expanded our dataset to over 466,000 records, was a critical first step.
+
+We immediately progressed to **Phase 3 (Cleaning)**, where we systematically addressed data quality issues as discussed in Module 9. Our cleaning notebook (`02_cleaning.ipynb`) dropped entirely null columns and, most importantly, removed all 35,550 records with missing price data, resulting in a clean, analysis-ready file. This work also fulfilled our "Storage and Organization" plan by producing a new, processed CSV.
+
+This clean dataset was then handed off for **Phase 4 (EDA)**. This analysis, documented in the `eda.ipynb` notebook, directly addressed our core research questions by visualizing price distributions, comparing room types, and analyzing neighborhood-specific trends. The findings from this phase confirm our initial hypotheses and provide a clear direction for feature selection.
+
+At this point, we have successfully completed all project requirements related to data integration (Module 7-8), quality (Module 9), and cleaning (Module 10). With the data engineering and exploratory analysis complete, our project is now perfectly positioned to proceed to **Phase 5 (Model Selection)**.
