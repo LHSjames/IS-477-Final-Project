@@ -72,7 +72,23 @@ Based on feedback received for Milestone 2, we are updating our project plan.
 
 ---
 
-## 4. Individual Contributions
+## 4. Exploratory Data Analysis
+
+### Artifacts: 02_eda.ipynb, fig_price_hist.png, fig_price_by_room.png
+
+### Description:
+
+Exploratory Data Analysis (EDA) was completed using the cleaned Chicago Airbnb dataset. The goal was to understand the overall structure and main patterns in the data before modeling. We reviewed variable distributions, correlations, and neighborhood trends to uncover key insights.
+
+Visualizations showed that listing prices are right-skewed, with most properties priced at the lower range and a few very high-priced outliers. Entire homes and apartments have significantly higher median prices than private or shared rooms. Neighborhood analysis revealed that price and minimum stay requirements vary strongly across locations, suggesting that neighborhood category is a meaningful factor for prediction.
+
+We also examined correlations among numeric features such as price, availability, and reviews-per-month (a proxy for booking frequency). Early findings suggest that listings with higher availability and moderate pricing tend to receive more consistent reviews.
+
+These results confirm that the dataset is ready for the modeling phase, and they provide a clear direction for feature selection and transformation (e.g., log-scaling price, encoding neighborhoods, and using review metrics as success indicators).
+
+---
+
+## 5. Individual Contributions
 
 
 **JJ Park (Data Engineer):**
