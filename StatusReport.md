@@ -10,8 +10,8 @@ Here is an update on the tasks from our original project plan:
     * **Artifacts:** `ProjectPlan.md`
 
 * **Phase 2: Data Acquisition & Integration**
-    * **Status:** In Progress
-    * **Description:** As the Data Engineer (JJ), I have written the `01_data_integration.ipynb` notebook to perform the two-stage data merge.
+    * **Status:** Completed
+    * **Description:** As the Data Engineer (JJ), I have written and successfully executed the 01_data_integration.ipynb notebook. The listings, reviews, and neighbourhoods datasets have been merged.
     * **Artifacts:** `01_data_integration.ipynb`
 
 * **Phase 3: Data Cleaning & Feature Engineering**
@@ -39,7 +39,7 @@ Our timeline has been adjusted to reflect the work remaining until the final dea
 | Task | Original Target Date | Status | Updated Due Date | Assigned To |
 | :--- | :--- | :--- | :--- | :--- |
 | Project Planning | Oct 7, 2025 | Completed | N/A | Both |
-| Data Acquisition | ~Oct 12, 2025 | **In Progress** | Nov 17, 2025 | JJ Park |
+| Data Acquisition | ~Oct 12, 2025 | Completed | Nov 17, 2025 | JJ Park |
 | Data Cleaning | ~Oct 14, 2025 | Not Started | Nov 22, 2025 | JJ Park |
 | EDA | ~Oct 19, 2025 | Not Started | Nov 27, 2025 | James Lee |
 | Model Selection | ~Oct 23, 2025 | Not Started | Dec 3, 2025 | James Lee |
