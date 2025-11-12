@@ -74,7 +74,7 @@ Based on feedback received for Milestone 2, we are updating our project plan.
 
 ## 4. Exploratory Data Analysis
 
-### Artifacts: 02_eda.ipynb, fig_price_hist.png, fig_price_by_room.png
+### Artifacts: eda.ipynb, fig_price_hist.png, fig_price_by_room.png
 
 ### Description:
 
