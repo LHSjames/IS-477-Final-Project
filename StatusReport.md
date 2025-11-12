@@ -72,19 +72,22 @@ Based on feedback received for Milestone 2, we are updating our project plan.
 
 ---
 
-## 4. Exploratory Data Analysis
+## 4. Exploratory Data Analysis (EDA)
 
-### Artifacts: eda.ipynb, fig_price_hist.png, fig_price_by_room.png
+**Artifacts:** `02_eda.ipynb`, `fig_price_hist.png`, `fig_price_by_room.png`  
 
-### Description:
+**Description:**  
+Exploratory Data Analysis (EDA) was conducted using the cleaned Chicago Airbnb dataset (`cleaned_chicago_data.csv`) to gain a deeper understanding of the data's overall structure and identify meaningful trends prior to modeling. The analysis was conducted in `02_eda.ipynb`, which produced summary statistics, neighborhood comparisons, and visualizations.  
 
-Exploratory Data Analysis (EDA) was completed using the cleaned Chicago Airbnb dataset. The goal was to understand the overall structure and main patterns in the data before modeling. We reviewed variable distributions, correlations, and neighborhood trends to uncover key insights.
+Figure 1 below shows that **listing prices are right-skewed**, with most listings concentrated in lower price ranges and a small number of high-priced outliers.  
+![Price Distribution Histogram](fig_price_hist.png)
 
-Visualizations showed that listing prices are right-skewed, with most properties priced at the lower range and a few very high-priced outliers. Entire homes and apartments have significantly higher median prices than private or shared rooms. Neighborhood analysis revealed that price and minimum stay requirements vary strongly across locations, suggesting that neighborhood category is a meaningful factor for prediction.
+Figure 2 compares **median prices across room types**, showing that entire homes and apartments are significantly more expensive than private or shared rooms.  
+![Median Price by Room Type](fig_price_by_room.png)
 
-We also examined correlations among numeric features such as price, availability, and reviews-per-month (a proxy for booking frequency). Early findings suggest that listings with higher availability and moderate pricing tend to receive more consistent reviews.
+Neighborhood analysis revealed that **price and minimum-stay requirements vary strongly by location**, indicating that neighborhood category will likely serve as an important predictive feature. We also examined correlations among numeric features such as price, availability, and reviews-per-month (used as a proxy for booking frequency). The analysis suggests that listings with **moderate pricing and consistent availability tend to receive more frequent reviews**.
 
-These results confirm that the dataset is ready for the modeling phase, and they provide a clear direction for feature selection and transformation (e.g., log-scaling price, encoding neighborhoods, and using review metrics as success indicators).
+Overall, these findings confirm that the dataset is ready for the modeling phase. The EDA results provide clear guidance for feature selection and transformation, such as log-scaling price, encoding neighborhood categories, and using review metrics as success indicators.
 
 ---
 
