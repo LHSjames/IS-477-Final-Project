@@ -53,7 +53,7 @@ Our Exploratory Data Analysis (EDA) yielded the following key insights:
 To reproduce these results, follow these steps:
 
 1.  **Get the Data:**
-    * Download the input data from our Box folder here: **[INSERT YOUR BOX LINK HERE]**
+    * Download the input data from our Box folder here: https://uofi.box.com/s/g45h7ykpftjyvth3agwfl3zd9roou95z
     * *Note: Data is hosted on Box to comply with GitHub file size limits and licensing.*
 
 2.  **Save Data:**
