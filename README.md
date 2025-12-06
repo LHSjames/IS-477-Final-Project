@@ -12,6 +12,10 @@
     2. Which listing features (e.g., room type, price) are the strongest predictors of booking frequency?
     3. Are there specific neighborhood factors that correlate with host turnover?
 * **Findings:** Our analysis reveals that the market is heavily right-skewed in terms of price, with a clear hierarchy based on room type. Neighborhood location serves as a strong differentiator for both price and minimum stay requirements. Listings with moderate pricing and consistent availability tend to receive the most frequent reviews.
+* * **Predictive Modeling:** We trained a Linear Regression model to predict listing prices. The model achieved an **R² score of 0.050**, indicating that price variation is highly complex and not solely determined by basic features.
+* **Key Drivers:** Despite the low overall predictive power, the model identified clear premium factors.
+    * **Room Type:** "Hotel rooms" are by far the most expensive category, adding an estimated **$3,757** to the nightly price compared to the baseline.
+    * **Location:** Neighborhoods like **Near North Side** (+$624) and **The Loop** (+$226) command significant premiums, confirming our hypothesis that downtown locations drive higher prices.
 
 ## Data Profile
 We utilized three distinct datasets from **Inside Airbnb**, integrated to create a comprehensive view of the market.
