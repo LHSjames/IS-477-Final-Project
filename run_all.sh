@@ -6,6 +6,9 @@ echo "Starting Data Cleaning..."
 jupyter nbconvert --to notebook --execute 02_cleaning.ipynb
 
 echo "Starting EDA..."
-jupyter nbconvert --to notebook --execute eda.ipynb
+jupyter nbconvert --to notebook --execute EDA.ipynb
+
+echo "Starting Modeling..."
+jupyter nbconvert --to notebook --execute 03_modeling.ipynb
 
 echo "Workflow Complete!"
