@@ -12,10 +12,6 @@
     2. Which listing features (e.g., room type, price) are the strongest predictors of booking frequency?
     3. Are there specific neighborhood factors that correlate with host turnover?
 * **Findings:** Our analysis reveals that the market is heavily right-skewed in terms of price, with a clear hierarchy based on room type. Neighborhood location serves as a strong differentiator for both price and minimum stay requirements. Listings with moderate pricing and consistent availability tend to receive the most frequent reviews.
-* **Predictive Modeling:** We trained a Linear Regression model to predict listing prices. The model achieved an **R² score of 0.050**, indicating that price variation is highly complex and not solely determined by basic features.
-* **Key Drivers:** Despite the low overall predictive power, the model identified clear premium factors.
-    * **Room Type:** "Hotel rooms" are by far the most expensive category, adding an estimated **$3,757** to the nightly price compared to the baseline.
-    * **Location:** Neighborhoods like **Near North Side** (+$624) and **The Loop** (+$226) command significant premiums, confirming our hypothesis that downtown locations drive higher prices.
 
 ## Data Profile
 We utilized three distinct datasets from **Inside Airbnb**, integrated to create a comprehensive view of the market.
@@ -47,11 +43,18 @@ Our Exploratory Data Analysis (EDA) yielded the following key insights:
 * **Room Type Impact:** As shown in `fig_price_by_room.png`, "Entire home/apt" listings command a significantly higher median price compared to "Private rooms" or "Shared rooms."
 * **Neighborhood Effects:** Location is a critical determinant. Price and minimum-stay requirements vary strongly by neighborhood, suggesting that geographic features are essential for any predictive pricing model.
 * **Booking Frequency:** Listings with moderate pricing and consistent availability correlate with higher review counts, suggesting these are the most "active" segment of the market.
+* **Predictive Modeling:** We trained a Linear Regression model to predict listing prices. The model achieved an **R² score of 0.050**, indicating that price variation is highly complex and not solely determined by basic features.
+* **Key Drivers:** Despite the low overall predictive power, the model identified clear premium factors.
+    * **Room Type:** "Hotel rooms" are by far the most expensive category, adding an estimated **$3,757** to the nightly price compared to the baseline.
+    * **Location:** Neighborhoods like **Near North Side** (+$624) and **The Loop** (+$226) command significant premiums, confirming our hypothesis that downtown locations drive higher prices.
 
 ## Future Work
 * **Predictive Modeling:** The next logical step is to implement the regression model (originally planned) to predict listing prices based on the features identified in our EDA (room type, neighborhood, availability).
 * **External Data Integration:** Integrating socioeconomic data (e.g., median household income by neighborhood) could explain *why* certain neighborhoods command higher prices beyond just geography.
 * **NLP on Reviews:** Analyzing the text of reviews (sentiment analysis) could provide a quality metric that goes beyond simple star ratings.
+* **Model Improvement:** The high RMSE ($1,291) and low R² suggest that the dataset likely contains extreme high-price outliers that skew a linear model. Future work would involve:
+    1. **Removing Outliers:** Filtering out listings priced above $2,000/night to stabilize the model.
+    2. **Advanced Modeling:** Testing non-linear models like **Random Forest** or **XGBoost** to capture complex pricing dynamics.
 
 ## Reproducing
 To reproduce these results, follow these steps:
