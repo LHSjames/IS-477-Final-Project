@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# 1. Stop the script immediately if any notebook fails (Critical for grading!)
 set -e
 
 echo "Starting Data Integration..."
