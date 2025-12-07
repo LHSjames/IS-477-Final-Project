@@ -120,12 +120,7 @@ To reproduce these results, follow these steps:
     ```
 
 **3. Run Analysis**
-You can reproduce the entire workflow (Integration → Cleaning → EDA → Modeling) automatically or manually.
-
-**Option A: Automated Workflow (Recommended)**
-Run the master shell script to execute all notebooks in order:
-```bash
-bash run_all.sh
+You can reproduce the entire workflow, including integration, cleaning, EDA, and modeling, using our automated process. To do this, simply run the command `bash run_all.sh` in your terminal.
 
 ## References
 * **Data Source:** [Inside Airbnb](http://insideairbnb.com/get-the-data.html) (Chicago Dataset).
