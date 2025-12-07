@@ -54,15 +54,20 @@ The construction of the final analytical dataset required a multi-stage integrat
 Ethical use of this data is paramount. The source data is provided by Inside Airbnb under a **Creative Commons CC BY-NC-SA 4.0 License** (Attribution-NonCommercial-ShareAlike). We have strictly adhered to these terms in the following ways. First, regarding **Non-Commercial Use**, this project is strictly academic. No insights derived here will be sold or used for commercial advantage. Second, regarding **Attribution**, we have explicitly cited Inside Airbnb as the source in our documentation and report. Third, regarding **Privacy**, we acknowledge that while the data is public, it represents real individuals. The source data anonymizes guest information, and listing locations are "fuzzed" by Airbnb to protect privacy (showing a circular area rather than an exact address). We respected this by not attempting to reverse-engineer exact addresses. Finally, to comply with "Redistribution" constraints and GitHub file size limits, the raw CSV files are not included in this repository. They are listed in our `.gitignore` file, and we have provided a checksum-verified acquisition workflow for reproducibility.
 
 ## Data Quality
-* **Assessment:**
-    * The `neighbourhood_group` column was found to be entirely null.
-    * Significant missing values were found in `price` and `last_review` columns.
-    * Data required type conversion (e.g., currency strings to floats).
-* **Cleaning:**
-    * We executed a two-stage relational merge (Listings + Reviews, then + Neighborhoods).
-    * We dropped entirely empty columns (like `neighbourhood_group`).
-    * We removed approximately 35,550 records that lacked valid price data to ensure accurate financial analysis.
-    * The final dataset contains over 466,000 integrated records ready for analysis.
+**Overview of Assessment Framework**
+Ensuring the reliability of our analysis required a rigorous assessment of the input data. We evaluated the integrated dataset against a framework of **Completeness** (is data missing?), **Validity** (does the data conform to expected formats?), and **Consistency**. This assessment revealed critical issues with missing financial data and redundant geographic columns that dictated our cleaning strategy.
+
+**1. Completeness and Missing Data**
+The most significant challenge was missing values in key analytical columns.
+* **Pricing Data:** We identified records that contained null values in the `price` column. Since price is our primary dependent variable for modeling, these records were deemed "fatally incomplete." Imputing these values was rejected to avoid introducing artificial noise into our ground-truth target variable.
+* **Geographic Grouping:** Both the `neighbourhood_group` and `neighbourhood_group_neighborhood` columns were found to be **100% null**. This is a known artifact of the Inside Airbnb data for Chicago, which relies on specific "Community Areas" (`neighbourhood`) rather than larger borough-style groups.
+* **Review History:** A small subset of listings (1,568 records) had null values for `date` and `reviews_per_month`. These represent listings with zero reviews. Unlike the pricing data, this "missingness" is informative—it identifies new or inactive inventory—and these records were retained to preserve a complete view of market supply.
+
+**2. Cleaning Pipeline and Actions**
+Our cleaning process (see `02_cleaning.ipynb`) focused on structural refinement and strict filtering of invalid financial records.
+* **Schema Refinement:** We dropped the empty columns `neighbourhood_group` and `neighbourhood_group_neighborhood` to reduce memory overhead and eliminate redundant null features.
+* **Financial Filtering:** We executed a strict drop operation on any row missing `price` data. This ensured that every record in our final analysis has a valid, confirmed price.
+* **Result:** The final, cleaned dataset (`cleaned_chicago_data.csv`) contains **430,486 integrated records**. Each record represents a review event enriched with the static properties of the listing, or a listing with no reviews, ready for the next stage of analysis.
 
 ## Findings
 Our Exploratory Data Analysis (EDA) yielded the following key insights:
