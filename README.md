@@ -122,6 +122,14 @@ To reproduce these results, follow these steps:
 **3. Run Analysis**
 You can reproduce the entire workflow, including integration, cleaning, EDA, and modeling, using our automated process. To do this, simply run the command `bash run_all.sh` in your terminal.
 
+## Project Structure
+* `data/`: Contains raw and processed CSV files (not synced to Git).
+* `figures/`: Generated plots from the EDA process.
+* `01_data_integration.ipynb`: Script to merge listings, reviews, and neighborhoods.
+* `02_cleaning.ipynb`: Cleaning pipeline (null removal, type casting).
+* `03_modeling.ipynb`: Machine learning / Linear regression analysis.
+* `EDA.ipynb`: Exploratory analysis and visualization generation.
+
 ## References
 * **Data Source:** [Inside Airbnb](http://insideairbnb.com/get-the-data.html) (Chicago Dataset).
 * **Tools:** Python, Pandas, Matplotlib, Seaborn, Jupyter Notebooks.
