@@ -29,7 +29,7 @@ This project successfully transformed raw and disjointed data into a clean and i
 **Data Source and Scope**
 The data for this project was obtained from Inside Airbnb, an independent, non-commercial watchdog project that tracks the impact of short-term rentals on residential communities. We utilized a snapshot of the Chicago market, specifically selecting three distinct files that allow for a relational reconstruction of the hosting ecosystem. These files were downloaded directly from the Inside Airbnb archive and represent a verified snapshot of market conditions. To ensure the integrity of our analysis, we verified that the snapshot represents a consistent time period, allowing us to correlate listing availability with review activity without temporal mismatch. The final integrated dataset includes information on **8,604 unique listings**, **464,254 historical reviews**, and the official geographic boundaries of Chicago's **77 community areas**.
 
-**Dataset 1: Listings (Static Property Attributes)**
+**Dataset 1: Listings (chicago_airbnb_listings.csv)**
 The primary dataset, `listings.csv`, serves as the backbone of our relational model. It functions as a dimension table containing the static attributes of every unique listing available on the platform during the snapshot window. This file is the most granular source of information, providing row-level detail for each property. The dataset contains **8,604 records** and **18 columns**. The key identifying field is `id`, which serves as the primary key for joining with other datasets.
 
 The attributes within this file can be categorized into three critical segments:
@@ -37,12 +37,12 @@ The attributes within this file can be categorized into three critical segments:
 2. **Financial and Operational Data:** This includes the `price`, `minimum_nights`, and `availability_365` columns. Our initial profiling revealed data quality issues here: specifically, the `price` column contained **923 null values** (approximately 10.7% of the total), and the `neighbourhood_group` column was found to be 100% empty (8,604 nulls). These discoveries directly informed our cleaning strategy, necessitating the removal of incomplete records to ensure accurate financial modeling.
 3. **Host Metadata:** Fields like `host_id`, `host_name`, and `calculated_host_listings_count` provide context on the operator. These metrics allow us to distinguish between casual sharers and commercial operators managing multiple units.
 
-**Dataset 2: Reviews (Dynamic Market Activity)**
+**Dataset 2: Reviews (chicago_airbnb_reviews.csv)**
 To measure market activity, we utilized the `reviews.csv` file. Unlike the static listings file, this dataset represents a longitudinal record of transaction history. It contains **464,254 individual records**, each representing a unique review left for a listing. The file structure is lean, containing only `listing_id` (foreign key) and `date`.
 
 The primary value of this dataset lies in its temporal nature. By analyzing the `date` column, we constructed time-series metrics to estimate booking frequency. Since Airbnb does not publish actual booking data, the frequency of reviews serves as the industry-standard proxy for occupancy and demand. This dataset allowed us to move beyond simple pricing analysis and investigate the relationship between a listing’s physical attributes and its actual performance in the marketplace over time.
 
-**Dataset 3: Neighborhoods (Geographic Standardization)**
+**Dataset 3: Neighborhoods (chicago_airbnb_neighbourhoods.csv)**
 The third dataset, `neighbourhoods.csv`, is a reference table containing the official list of Chicago community areas. It contains **77 records**, corresponding to the city's official neighborhood divisions. While the Listings dataset contains a `neighbourhood` column, it is often subject to user-entry variance or informal naming conventions.
 
 This reference file allows us to validate and standardize the geographic data, ensuring that our analysis aligns with official city planning zones. It acts as a lookup table, ensuring that when we group metrics by location, we are using a consistent and statistically valid set of boundaries rather than arbitrary user-defined labels. Notably, the `neighbourhood_group` column in this file was also found to be entirely null, confirming our decision to drop this feature during the cleaning phase.
