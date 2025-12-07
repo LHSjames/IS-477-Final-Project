@@ -104,23 +104,28 @@ Finally, we must refine our approach to data engineering to better handle the ex
 ## Reproducing
 To reproduce these results, follow these steps:
 
-1.  **Get the Data:**
-    * Download the input data from our Box folder here: https://uofi.box.com/s/g45h7ykpftjyvth3agwfl3zd9roou95z
-    * *Note: Data is hosted on Box to comply with GitHub file size limits and licensing.*
+### 1. Get the Data
+* Download the input data from our Box folder here: [https://uofi.box.com/s/g45h7ykpftjyvth3agwfl3zd9roou95z](https://uofi.box.com/s/g45h7ykpftjyvth3agwfl3zd9roou95z)
+* *Note: Data is hosted on Box to comply with GitHub file size limits and licensing.*
+* **Data Integrity:** Verify your downloaded files against the following SHA-256 hashes to ensure they are not corrupted:
+    * `listings.csv`: `27e33ac75e9a93870d7c34a24b2d080c338c479c26693dbb077f8e12ff519f16`
+    * `reviews.csv`: `cc743a930bd991875bec40c10c29a8e9d932f3a81ec0af436d4b02a01e393f00`
+    * `neighbourhoods.csv`: `f670d17812e414f5c5db7420845d675fddf4dd8de6c893f3328ea078bedd9a84`
 
-2.  **Save Data:**
-    * Place the downloaded CSV files in a folder named `data/` in the root of this repository.
+### 2. Setup
+* Place the downloaded CSV files in a folder named `data/` in the root of this repository.
+* Install the required dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-3.  **Install Dependencies:**
-    * Run the following command to install required libraries:
-        ```bash
-        pip install -r requirements.txt
-        ```
+### 3. Run Analysis
+You can reproduce the entire workflow (Integration → Cleaning → EDA → Modeling) automatically or manually.
 
-4.  **Run Analysis:**
-    * **Step 1:** Run `01_data_integration.ipynb` to merge the three source files.
-    * **Step 2:** Run `02_cleaning.ipynb` to clean nulls and format data.
-    * **Step 3:** Run `EDA.ipynb` to generate the statistics and visualizations (Figures 1 & 2).
+**Option A: Automated Workflow (Recommended)**
+Run the master shell script to execute all notebooks in order:
+```bash
+bash run_all.sh
 
 ## References
 * **Data Source:** [Inside Airbnb](http://insideairbnb.com/get-the-data.html) (Chicago Dataset).
