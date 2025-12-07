@@ -1,8 +1,8 @@
 # Chicago Airbnb Market Analysis
 
 ## Contributors
-* **JJ Park (jjp11):** Data Engineer. Collected and integrated the listings, reviews, and neighborhood datasets. Built the data cleaning pipeline to remove nulls and format currency. Created the project structure and `.gitignore` to ensure compliance.
-* **James Lee (hosangl2):** Data Analyst. Performed Exploratory Data Analysis (EDA) on the cleaned dataset. Created visualizations for price distribution and room type analysis. Interpreted findings to guide future modeling strategies.
+* **JJ Park (jjp11):** Data Engineer. Collected and integrated the listings, reviews, and neighborhood datasets. Built the data cleaning pipeline to remove nulls and format currency. Created the project structure and `.gitignore` to ensure compliance. Contributed equally to data modeling, model selection, and the writing of the final project report.
+* **James Lee (hosangl2):** Data Analyst. Performed Exploratory Data Analysis (EDA) on the cleaned dataset. Created visualizations for price distribution and room type analysis. Interpreted findings to guide future modeling strategies. Contributed equally to data modeling, model selection, and the writing of the final project report.
 
 ## Summary
 **Project Overview and Motivation**
