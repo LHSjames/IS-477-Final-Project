@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this, please cite it as below."
+authors:
+  - family-names: "Park"
+    given-names: "JJ"
+  - family-names: "Lee"
+    given-names: "James"
+title: "Chicago Airbnb Market Analysis"
+version: 1.0.0
+date-released: 2025-12-07
+url: "https://github.com/your-repo-url"
