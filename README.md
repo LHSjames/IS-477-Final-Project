@@ -13,6 +13,30 @@
     3. Are there specific neighborhood factors that correlate with host turnover?
 * **Findings:** Our analysis reveals that the market is heavily right-skewed in terms of price, with a clear hierarchy based on room type. Neighborhood location serves as a strong differentiator for both price and minimum stay requirements. Listings with moderate pricing and consistent availability tend to receive the most frequent reviews.
 
+**Project Overview and Motivation** The rise of the "gig economy" has fundamentally transformed urban housing markets, with platforms like Airbnb acting as a central driver of this shift. In cities like Chicago, short-term rentals have created a complex ecosystem where property owners act as micro-hoteliers, balancing pricing strategies against occupancy rates and regulatory constraints. The motivation for this project, "Chicago Airbnb Market Analysis," stems from a desire to understand the underlying mechanics of this marketplace. Specifically, we sought to determine what actually drives the value of a listing: Is it purely location (neighborhood), the physical privacy of the room type, or more dynamic factors like host activity? Understanding these drivers is critical not only for potential hosts seeking to maximize revenue but also for policymakers trying to understand how short-term rentals interact with local housing dynamics.
+
+**Research Objectives** Our primary research goal was to perform a data-intensive examination of the Chicago market by moving beyond simple descriptive statistics and towards an integrated, multi-faceted view of the ecosystem. We defined three core research questions to guide our analysis:
+
+* **Geographic Influence:** What is the measurable impact of neighborhood categorization on pricing power and minimum stay requirements?
+
+* **Listing Attributes:** Which physical features—specifically room type—serve as the strongest predictors of price?
+
+* **Market Activity:** How do pricing and availability correlate with booking frequency (using review density as a proxy)?
+
+**Methodological Approach:** To answer these questions, we did not rely on a single flat file. Instead, we architected a relational dataset by integrating three distinct sources from Inside Airbnb: static Listings data (property attributes), dynamic Reviews data (historical activity), and official Neighborhood metadata (geographic standardization).
+
+The technical execution was divided into clear phases. First, a data engineering pipeline was established to merge these sources using relational keys (id, listing_id, and neighbourhood). This allowed us to map temporal review data onto static property features. Second, a rigorous cleaning process was applied. We identified that the dataset contained significant missing values in critical financial columns; specifically, we removed approximately 35,550 records that lacked valid price data to ensure our subsequent financial analysis was statistically sound. We also standardized currency formats and filtered out entirely null columns such as neighbourhood_group.
+
+**Key Findings and Insights:** Our Exploratory Data Analysis (EDA) revealed that the Chicago Airbnb market is defined by strict hierarchies and geographic premiums.
+
+* **Price Distribution:** The market is heavily right-skewed. While the vast majority of listings remain affordable, a "long tail" of high-priced outliers exists, skewing the mean and suggesting that a small number of luxury properties operate in a completely different market segment than the typical host.
+
+* **The Privacy Premium:** We found that "Room Type" is a definitive price differentiator. "Entire home/apt" listings command a significant median price premium over "Private rooms," validating the hypothesis that privacy is the primary luxury commodity in this market.
+
+* **Neighborhood Dynamics:** Location acts as a strict multiplier on price. Downtown and Near North Side neighborhoods do not just have higher prices; they often enforce different minimum stay requirements, suggesting a more professionalized hosting environment compared to outlying residential areas.
+
+**Conclusion** This project successfully transformed raw, disjointed data into a clean, integrated asset that reveals the structural drivers of the Chicago short-term rental market. The findings highlight that "price" is not a random variable but a function of specific, identifiable factors—primarily privacy (room type) and location (neighborhood). These insights provide a robust foundation for the next logical step: developing a predictive machine learning model to estimate listing prices based on these validated features.
+
 ## Data Profile
 We utilized three distinct datasets from **Inside Airbnb**, integrated to create a comprehensive view of the market.
 * **Dataset 1: Listings (`chicago_airbnb_listings.csv`)**
