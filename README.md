@@ -5,14 +5,6 @@
 * **James Lee (hosangl2):** Data Analyst. Performed Exploratory Data Analysis (EDA) on the cleaned dataset. Created visualizations for price distribution and room type analysis. Interpreted findings to guide future modeling strategies.
 
 ## Summary
-* **Goal:** The goal of this project is to perform a data-intensive examination of the Chicago Airbnb market by integrating static property attributes, dynamic review activity, and official neighborhood metadata.
-* **Motivation:** Understanding the drivers of listing prices and popularity is critical for both hosts and policymakers. This project seeks to reveal how location and property features influence market dynamics.
-* **Research Questions:**
-    1. What is the measurable impact of neighborhood categorization on listing price and minimum stay requirements?
-    2. Which listing features (e.g., room type, price) are the strongest predictors of booking frequency?
-    3. Are there specific neighborhood factors that correlate with host turnover?
-* **Findings:** Our analysis reveals that the market is heavily right-skewed in terms of price, with a clear hierarchy based on room type. Neighborhood location serves as a strong differentiator for both price and minimum stay requirements. Listings with moderate pricing and consistent availability tend to receive the most frequent reviews.
-
 **Project Overview and Motivation** The rise of the "gig economy" has fundamentally transformed urban housing markets, with platforms like Airbnb acting as a central driver of this shift. In cities like Chicago, short-term rentals have created a complex ecosystem where property owners act as micro-hoteliers, balancing pricing strategies against occupancy rates and regulatory constraints. The motivation for this project, "Chicago Airbnb Market Analysis," stems from a desire to understand the underlying mechanics of this marketplace. Specifically, we sought to determine what actually drives the value of a listing: Is it purely location (neighborhood), the physical privacy of the room type, or more dynamic factors like host activity? Understanding these drivers is critical not only for potential hosts seeking to maximize revenue but also for policymakers trying to understand how short-term rentals interact with local housing dynamics.
 
 **Research Objectives** Our primary research goal was to perform a data-intensive examination of the Chicago market by moving beyond simple descriptive statistics and towards an integrated, multi-faceted view of the ecosystem. We defined three core research questions to guide our analysis:
