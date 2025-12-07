@@ -61,7 +61,7 @@ Ensuring the reliability of our analysis required a rigorous assessment of the i
 The most significant challenge was missing values in key analytical columns.
 * **Pricing Data:** We identified records that contained null values in the `price` column. Since price is our primary dependent variable for modeling, these records were deemed "fatally incomplete." Imputing these values was rejected to avoid introducing artificial noise into our ground-truth target variable.
 * **Geographic Grouping:** Both the `neighbourhood_group` and `neighbourhood_group_neighborhood` columns were found to be **100% null**. This is a known artifact of the Inside Airbnb data for Chicago, which relies on specific "Community Areas" (`neighbourhood`) rather than larger borough-style groups.
-* **Review History:** A small subset of listings (1,568 records) had null values for `date` and `reviews_per_month`. These represent listings with zero reviews. Unlike the pricing data, this "missingness" is informative—it identifies new or inactive inventory—and these records were retained to preserve a complete view of market supply.
+* **Review History:** A small subset of listings (1,568 records) had null values for 'date' and 'reviews_per_month'. These represent listings with zero reviews. Unlike the pricing data, this "missingness" is informative because it identifies new or inactive inventory. Consequently, these records were retained to preserve a complete view of market supply.
 
 **2. Cleaning Pipeline and Actions**
 Our cleaning process (see `02_cleaning.ipynb`) focused on structural refinement and strict filtering of invalid financial records.
