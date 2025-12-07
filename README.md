@@ -70,23 +70,36 @@ Our cleaning process (see `02_cleaning.ipynb`) focused on structural refinement 
 * **Result:** The final, cleaned dataset (`cleaned_chicago_data.csv`) contains **430,486 integrated records**. Each record represents a review event enriched with the static properties of the listing, or a listing with no reviews, ready for the next stage of analysis.
 
 ## Findings
-Our Exploratory Data Analysis (EDA) yielded the following key insights:
-* **Price Distribution:** As seen in `fig_price_hist.png`, listing prices are significantly right-skewed. The majority of listings are affordable, but a long tail of high-priced outliers exists.
-* **Room Type Impact:** As shown in `fig_price_by_room.png`, "Entire home/apt" listings command a significantly higher median price compared to "Private rooms" or "Shared rooms."
-* **Neighborhood Effects:** Location is a critical determinant. Price and minimum-stay requirements vary strongly by neighborhood, suggesting that geographic features are essential for any predictive pricing model.
-* **Booking Frequency:** Listings with moderate pricing and consistent availability correlate with higher review counts, suggesting these are the most "active" segment of the market.
-* **Predictive Modeling:** We trained a Linear Regression model to predict listing prices. The model achieved an **R² score of 0.050**, indicating that price variation is highly complex and not solely determined by basic features.
-* **Key Drivers:** Despite the low overall predictive power, the model identified clear premium factors.
-    * **Room Type:** "Hotel rooms" are by far the most expensive category, adding an estimated **$3,757** to the nightly price compared to the baseline.
-    * **Location:** Neighborhoods like **Near North Side** (+$624) and **The Loop** (+$226) command significant premiums, confirming our hypothesis that downtown locations drive higher prices.
+**Market Structure and Price Distribution**
+Our Exploratory Data Analysis confirms that the Chicago Airbnb market is defined by a significant pricing hierarchy and extreme skewness to the right. The distribution of nightly prices does not follow a normal curve. While the median listing price is accessible at $151.00 per night, the mean is notably higher at $248.03. This is driven by a long tail of luxury and outlier properties that reach as high as $50,328 per night. This discrepancy indicates that while the typical Chicago host offers affordable accommodation, the market average is heavily influenced by a small percentile of ultra-high value listings.
+
+**The Privacy Premium**
+A clear hierarchy of value exists based on the level of privacy afforded to the guest. Our analysis of room types identifies this feature as a primary differentiator of value. Hotel rooms command the highest median price at $268.00, followed by Entire homes and apartments at $171.00. In sharp contrast, listings that require sharing space trade at a steep discount. Private rooms have a median price of $74.00, while shared rooms sit at the bottom of the market with a median of just $21.00. This suggests that the Chicago market places a premium on exclusivity and privacy.
+
+**Geographic Determinants**
+Location acts as a strict multiplier on listing value. Our neighborhood analysis reveals a stark contrast between downtown economic hubs and outlying residential areas. The Loop neighborhood commands the highest median price in the city at $304.00, followed by the Near-South Side at $261.00 and the Near-North Side at $259.00. Conversely, neighborhoods such as West Lawn at $37.00 and New City at $39.00 offer significantly lower price points. This geographic variance confirms that neighborhood categorization is likely the single strongest predictor of price in the dataset.
+
+**Behavioral Dynamics and Availability**
+We examined the relationship between listing constraints and market activity using review counts as a proxy for booking frequency. We found a negative correlation of 0.14 between minimum night requirements and reviews per month. This indicates that listings with flexible and shorter stay policies attract more frequent bookings. Interestingly, the correlation between price and review frequency is near zero at 0.02. This suggests that higher prices do not necessarily deter booking volume, provided the listing offers commensurate value.
+
+**Predictive Modeling Results**
+To quantify these relationships, we trained a Linear Regression model to predict listing prices. The model achieved an R² score of 0.050. This relatively low value underscores the complexity of the market, as price variation is not easily explained by simple linear combinations of basic features. However, the model coefficients did successfully isolate premium factors. Hotel rooms were identified as the most expensive category, adding an estimated premium of $3,757 relative to the baseline. Similarly, premium locations such as the Near North Side and The Loop were associated with significant price increases, statistically confirming the Downtown Premium observed during our exploratory analysis.
 
 ## Future Work
-* **Predictive Modeling:** The next logical step is to implement the regression model (originally planned) to predict listing prices based on the features identified in our EDA (room type, neighborhood, availability).
-* **External Data Integration:** Integrating socioeconomic data (e.g., median household income by neighborhood) could explain *why* certain neighborhoods command higher prices beyond just geography.
-* **NLP on Reviews:** Analyzing the text of reviews (sentiment analysis) could provide a quality metric that goes beyond simple star ratings.
-* **Model Improvement:** The high RMSE ($1,291) and low R² suggest that the dataset likely contains extreme high-price outliers that skew a linear model. Future work would involve:
-    1. **Removing Outliers:** Filtering out listings priced above $2,000/night to stabilize the model.
-    2. **Advanced Modeling:** Testing non-linear models like **Random Forest** or **XGBoost** to capture complex pricing dynamics.
+**Reflections and Lessons Learned**
+This project successfully established a comprehensive data engineering and exploratory framework for understanding the Chicago Airbnb market. However, our analysis also revealed significant limitations in using basic linear approaches to model this complex ecosystem. The most critical lesson learned was that listing price is not merely a function of static attributes like room type or location. The relatively low R-squared score of 0.050 in our preliminary linear regression model serves as a strong signal that market dynamics are nonlinear and heavily influenced by outliers. We learned that while data cleaning can remove technical errors, such as null values, it does not inherently solve the problem of extreme variance in financial data. The existence of a long tail of luxury listings priced above $2,000 per night skewed our mean values and destabilized the predictive power of our initial models. These findings have directly informed our roadmap for future development.
+
+**Advanced Predictive Modeling**
+The immediate next step is to move beyond simple linear regression and implement more sophisticated machine learning algorithms. Given the complex interactions between neighborhood location and property type, we plan to test non-linear models such as Random Forest or XGBoost. These tree-based ensemble methods are far better suited to capture the tiered nature of the market, where a distinct set of rules applies to luxury entire home listings versus budget private rooms. Implementing these models would likely reduce our Root Mean Squared Error significantly and provide a more accurate pricing engine for hosts.
+
+**Strategic Data Enrichment**
+Our current analysis relies heavily on geographic proxies. We use neighborhood names to imply economic status, but this is an imperfect measure. A major area for future work is the integration of external socioeconomic datasets. By integrating Census Bureau data regarding median household income, crime rates, and proximity to public transit, we could explain why certain neighborhoods command higher prices beyond simple geography. For example, quantifying the distance to the nearest L train station or the density of local restaurants could transform our location variable from a categorical label into a set of quantifiable economic features.
+
+**Unstructured Data and Sentiment Analysis**
+Another untapped resource in our dataset is the text content of the reviews. Currently, we rely on quantitative star ratings, which tend to be heavily skewed towards positive values in the Airbnb ecosystem. This makes it difficult to distinguish between a good stay and a truly exceptional one. Future work will involve applying Natural Language Processing techniques to the raw review text. By performing sentiment analysis, we could generate a new quality metric that captures the nuance of guest experiences. This would allow us to test the hypothesis that positive sentiment intensity is a stronger predictor of future booking frequency than the star rating alone.
+
+**Refined Outlier Management**
+Finally, we must refine our approach to data engineering to better handle the extreme outliers identified during the exploratory phase. The current dataset includes properties priced as high as $50,000 per night, which are likely data entry errors or non-standard event venues. Future iterations of this project will implement a stricter filtering protocol, potentially excluding listings above the 99th percentile or $2,000 per night. This targeted removal of extreme outliers is expected to stabilize the variance and allow our predictive models to focus on the core residential market that constitutes the majority of the sharing economy.
 
 ## Reproducing
 To reproduce these results, follow these steps:
