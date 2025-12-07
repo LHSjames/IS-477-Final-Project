@@ -2,7 +2,7 @@
 
 ## Contributors
 * JJ Park (jjp11)
-* James Lee ()
+* James Lee (hosangl2)
 
 ## Summary
 * **Goal:** The goal of this project is to perform a data-intensive examination of the Chicago Airbnb market by integrating static property attributes, dynamic review activity, and official neighborhood metadata.
