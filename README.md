@@ -104,7 +104,7 @@ Finally, we must refine our approach to data engineering to better handle the ex
 ## Reproducing
 To reproduce these results, follow these steps:
 
-### 1. Get the Data
+**1. Get the Data**
 * Download the input data from our Box folder here: [https://uofi.box.com/s/g45h7ykpftjyvth3agwfl3zd9roou95z](https://uofi.box.com/s/g45h7ykpftjyvth3agwfl3zd9roou95z)
 * *Note: Data is hosted on Box to comply with GitHub file size limits and licensing.*
 * **Data Integrity:** Verify your downloaded files against the following SHA-256 hashes to ensure they are not corrupted:
@@ -112,14 +112,14 @@ To reproduce these results, follow these steps:
     * `reviews.csv`: `cc743a930bd991875bec40c10c29a8e9d932f3a81ec0af436d4b02a01e393f00`
     * `neighbourhoods.csv`: `f670d17812e414f5c5db7420845d675fddf4dd8de6c893f3328ea078bedd9a84`
 
-### 2. Setup
+**2. Setup**
 * Place the downloaded CSV files in a folder named `data/` in the root of this repository.
 * Install the required dependencies:
     ```bash
     pip install -r requirements.txt
     ```
 
-### 3. Run Analysis
+**3. Run Analysis**
 You can reproduce the entire workflow (Integration → Cleaning → EDA → Modeling) automatically or manually.
 
 **Option A: Automated Workflow (Recommended)**
