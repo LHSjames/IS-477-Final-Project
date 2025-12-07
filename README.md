@@ -26,17 +26,32 @@ Our Exploratory Data Analysis revealed that the Chicago Airbnb market is defined
 This project successfully transformed raw and disjointed data into a clean and integrated asset that reveals the structural drivers of the Chicago short-term rental market. The findings highlight that price is not a random variable but a function of specific and identifiable factors, primarily privacy and location. These insights provide a robust foundation for the next logical step, which is developing a predictive machine learning model to estimate listing prices based on these validated features.
 
 ## Data Profile
-We utilized three distinct datasets from **Inside Airbnb**, integrated to create a comprehensive view of the market.
-* **Dataset 1: Listings (`chicago_airbnb_listings.csv`)**
-    * **Description:** Contains static attributes of properties, including price, room type, and physical specifications.
-    * **Key Fields:** `id`, `price`, `room_type`, `neighbourhood`.
-* **Dataset 2: Reviews (`chicago_airbnb_reviews.csv`)**
-    * **Description:** Contains historical review dates, used here to measure listing activity and popularity over time.
-    * **Key Fields:** `listing_id`, `date`.
-* **Dataset 3: Neighborhoods (`chicago_airbnb_neighbourhoods.csv`)**
-    * **Description:** Official list of Chicago neighborhoods used to validate and standardize geographic data.
-    * **Key Fields:** `neighbourhood`.
-* **Ethical & Legal:** The data is sourced from Inside Airbnb under a **Creative Commons CC BY-NC-SA 4.0 License**. We strictly adhered to this by using the data for non-commercial academic purposes only and providing clear attribution. Raw data is excluded from this repository via `.gitignore` to prevent redistribution.
+**Data Source and Scope**
+The data for this project was obtained from Inside Airbnb, an independent, non-commercial watchdog project that tracks the impact of short-term rentals on residential communities. We utilized a snapshot of the Chicago market, specifically selecting three distinct files that allow for a relational reconstruction of the hosting ecosystem. These files were downloaded directly from the Inside Airbnb archive and represent a verified snapshot of market conditions. To ensure the integrity of our analysis, we verified that the snapshot represents a consistent time period, allowing us to correlate listing availability with review activity without temporal mismatch. The final integrated dataset includes information on **8,604 unique listings**, **464,254 historical reviews**, and the official geographic boundaries of Chicago's **77 community areas**.
+
+**Dataset 1: Listings (Static Property Attributes)**
+The primary dataset, `listings.csv`, serves as the backbone of our relational model. It functions as a dimension table containing the static attributes of every unique listing available on the platform during the snapshot window. This file is the most granular source of information, providing row-level detail for each property. The dataset contains **8,604 records** and **18 columns**. The key identifying field is `id`, which serves as the primary key for joining with other datasets.
+
+The attributes within this file can be categorized into three critical segments:
+1. **Physical Specifications:** Columns such as `room_type` (e.g., "Entire home/apt" vs. "Private room"), `name`, and `license` describe the physical and legal status of the unit. This segment is essential for categorizing the inventory and understanding the "privacy premium" discussed in our findings.
+2. **Financial and Operational Data:** This includes the `price`, `minimum_nights`, and `availability_365` columns. Our initial profiling revealed data quality issues here: specifically, the `price` column contained **923 null values** (approximately 10.7% of the total), and the `neighbourhood_group` column was found to be 100% empty (8,604 nulls). These discoveries directly informed our cleaning strategy, necessitating the removal of incomplete records to ensure accurate financial modeling.
+3. **Host Metadata:** Fields like `host_id`, `host_name`, and `calculated_host_listings_count` provide context on the operator. These metrics allow us to distinguish between casual sharers and commercial operators managing multiple units.
+
+**Dataset 2: Reviews (Dynamic Market Activity)**
+To measure market activity, we utilized the `reviews.csv` file. Unlike the static listings file, this dataset represents a longitudinal record of transaction history. It contains **464,254 individual records**, each representing a unique review left for a listing. The file structure is lean, containing only `listing_id` (foreign key) and `date`.
+
+The primary value of this dataset lies in its temporal nature. By analyzing the `date` column, we constructed time-series metrics to estimate booking frequency. Since Airbnb does not publish actual booking data, the frequency of reviews serves as the industry-standard proxy for occupancy and demand. This dataset allowed us to move beyond simple pricing analysis and investigate the relationship between a listing’s physical attributes and its actual performance in the marketplace over time.
+
+**Dataset 3: Neighborhoods (Geographic Standardization)**
+The third dataset, `neighbourhoods.csv`, is a reference table containing the official list of Chicago community areas. It contains **77 records**, corresponding to the city's official neighborhood divisions. While the Listings dataset contains a `neighbourhood` column, it is often subject to user-entry variance or informal naming conventions.
+
+This reference file allows us to validate and standardize the geographic data, ensuring that our analysis aligns with official city planning zones. It acts as a lookup table, ensuring that when we group metrics by location, we are using a consistent and statistically valid set of boundaries rather than arbitrary user-defined labels. Notably, the `neighbourhood_group` column in this file was also found to be entirely null, confirming our decision to drop this feature during the cleaning phase.
+
+**Data Integration and Lineage**
+The construction of the final analytical dataset required a multi-stage integration process. We adopted a star-schema approach where the Listings file acted as the central fact table. We executed a left join with the Reviews data to aggregate activity metrics (such as reviews per month) onto the listing. We subsequently joined this result with the Neighborhoods file to validate geographic labels. The identification of 100% null values in the `neighbourhood_group` columns across both datasets was a critical finding, streamlining our feature selection process by eliminating redundant or empty variables early in the pipeline.
+
+**Ethical and Legal Constraints**
+Ethical use of this data is paramount. The source data is provided by Inside Airbnb under a **Creative Commons CC BY-NC-SA 4.0 License** (Attribution-NonCommercial-ShareAlike). We have strictly adhered to these terms in the following ways. First, regarding **Non-Commercial Use**, this project is strictly academic. No insights derived here will be sold or used for commercial advantage. Second, regarding **Attribution**, we have explicitly cited Inside Airbnb as the source in our documentation and report. Third, regarding **Privacy**, we acknowledge that while the data is public, it represents real individuals. The source data anonymizes guest information, and listing locations are "fuzzed" by Airbnb to protect privacy (showing a circular area rather than an exact address). We respected this by not attempting to reverse-engineer exact addresses. Finally, to comply with "Redistribution" constraints and GitHub file size limits, the raw CSV files are not included in this repository. They are listed in our `.gitignore` file, and we have provided a checksum-verified acquisition workflow for reproducibility.
 
 ## Data Quality
 * **Assessment:**
